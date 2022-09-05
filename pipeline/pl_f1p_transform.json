@@ -1,0 +1,104 @@
+{
+	"name": "pl_f1p_transform",
+	"properties": {
+		"activities": [
+			{
+				"name": "trans race results",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/formula1/trans/race_results"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks_f1p_ws",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "trans driver standings",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "trans race results",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/formula1/trans/driver_standings"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks_f1p_ws",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "trans constructor standings",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "trans race results",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/formula1/trans/constructor_standings"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks_f1p_ws",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "trans calculated race results",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/formula1/trans/calculed_race_results"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks_f1p_ws",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2022-09-05T16:51:46Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

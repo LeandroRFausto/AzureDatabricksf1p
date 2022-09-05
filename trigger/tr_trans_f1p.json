@@ -1,0 +1,24 @@
+{
+	"name": "tr_trans_f1p",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pl_f1p_transform",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/processed/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/e1282b7e-ce5c-4599-8d3b-08c35d3dd2b3/resourceGroups/databricks-f1p-rg/providers/Microsoft.Storage/storageAccounts/f1pdl",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

@@ -1,0 +1,30 @@
+{
+	"name": "pl_f1p_ingest",
+	"properties": {
+		"activities": [
+			{
+				"name": "Ingest all File",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/formula1/ingestion/ingest_all_files"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks_f1p_ws",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2022-09-05T16:51:46Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

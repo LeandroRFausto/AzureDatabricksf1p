@@ -1,0 +1,22 @@
+{
+	"name": "ds_f1p_csv_https",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_http_databricks_ergast",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
