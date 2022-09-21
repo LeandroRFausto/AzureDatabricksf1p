@@ -1,6 +1,6 @@
 # AzureDatabricksf1p
 
-O projeto utiliza exclusivamente a Azure. Os dados são fornecidos pela Ergast Developer API, serviço que gere dados históricos da fórmula 1. 
+Implementa uma solução de Engenharia de dados para análises da Fórmula 1. O projeto utiliza exclusivamente a Azure, com o Databricks como principal componente. Os dados são fornecidos pela Ergast Developer API, serviço que gere dados históricos da fórmula 1. 
 As transformações, conversões e incrementos são feitos em notebooks Databricks e o Data Factory é responsável pela orquestração, automatização e monitoramento dos pipelines.
 A estrutura captura dados automática e semanalmente, os insere no data lake ativando o pipeline para atualização do estudo e relatório.
 Arquivos utilizados na API no formato CSV: CIRCUITS, CONSTRUCTORS, DRIVERS, LAP TIMES, PIT STOPS, QUALIFYING, RACES e RESULTS.
